@@ -15,19 +15,24 @@ export default function Login() {
     setLoading(true);
     setError("");
     try {
-      const response = await axios.post('https://api.theschoolofoptions.com/api/v1/auth/login', formData);
+      const response = await axios.post(
+        "https://api.theschoolofoptions.com/api/v1/auth/login",
+        formData
+      );
       const data = response.data;
-      if (response.status !== 200) throw new Error(data.error || "Login failed");
+      if (response.status !== 200) {
+        setError(data.error);
+      }
 
-    //   const user: any = {
-    //     id: data.userId,
-    //     email: formData.email,
-    //     name: "User",
-    //   };
+      //   const user: any = {
+      //     id: data.userId,
+      //     email: formData.email,
+      //     name: "User",
+      //   };
       navigate("/dashboard");
       // onSuccess(user, formData.email, data.otp);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      setError("Login failed");
     } finally {
       setLoading(false);
     }
@@ -148,7 +153,10 @@ export default function Login() {
               </a> */}
               <div className="text-muted-foreground">
                 Don’t have an account?{" "}
-                <a href="/auth/signup" className="font-semibold text-orange-light hover:text-orange">
+                <a
+                  href="/auth/signup"
+                  className="font-semibold text-orange-light hover:text-orange"
+                >
                   Sign up
                 </a>
               </div>

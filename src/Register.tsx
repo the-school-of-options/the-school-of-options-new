@@ -58,12 +58,9 @@ export default function Signup() {
       // focus the first OTP input
       setTimeout(() => inputsRef.current[0]?.focus(), 0);
     } catch (err: any) {
-      const msg =
-        err?.response?.data?.error ||
-        err?.response?.data?.message ||
-        err?.message ||
-        "Signup failed";
+      const msg = "Signup failed";
       setError(msg);
+      setLoading(false)
     } finally {
       setLoading(false);
     }
