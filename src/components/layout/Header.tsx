@@ -17,23 +17,25 @@ const Header = () => {
   const isActive = (href: string) => location.pathname === href;
 
   const handleNewsletterClick = () => {
-    if (location.pathname === '/') {
-      // If already on homepage, just scroll to the section
-      const element = document.getElementById('section-newsletter');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on another page, navigate to homepage first
-      navigate('/');
-      // Wait for navigation to complete, then scroll
-      setTimeout(() => {
-        const element = document.getElementById('section-newsletter');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
+    // if (location.pathname === '/') {
+    //   // If already on homepage, just scroll to the section
+    //   const element = document.getElementById('section-newsletter');
+    //   if (element) {
+    //     element.scrollIntoView({ behavior: 'smooth' });
+    //   }
+    // } else {
+    //   // If on another page, navigate to homepage first
+    //   navigate('/');
+    //   // Wait for navigation to complete, then scroll
+    //   setTimeout(() => {
+    //     const element = document.getElementById('section-newsletter');
+    //     if (element) {
+    //       element.scrollIntoView({ behavior: 'smooth' });
+    //     }
+    //   }, 100);
+    // }
+
+    navigate('/auth/signin')
   };
 
   return (
@@ -67,7 +69,7 @@ const Header = () => {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button variant="cta-outline" size="sm" onClick={handleNewsletterClick}>
-              Free Newsletter
+              Sign In
             </Button>
             <Button variant="cta" size="sm" asChild>
               <a 

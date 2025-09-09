@@ -9,6 +9,9 @@ import MethodologyPage from "./pages/MethodologyPage";
 import FAQPage from "./pages/FAQPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import Login from "./Login";
+import Signup from "./Register";
+import Dashboard from "./Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +27,9 @@ const App = () => (
           <Route path="/about" element={<AboutPage />} />
           <Route path="/methodology" element={<MethodologyPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/auth/signin" element={<Login />} />
+          <Route path="/auth/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
